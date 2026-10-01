@@ -66,35 +66,19 @@
   var cities = Array.prototype.slice.call(cxEl.querySelectorAll('.cx-city')).map(function (el) {
     return { el: el, x: parseFloat(el.dataset.x), y: parseFloat(el.dataset.y) };
   });
-  var photos = Array.prototype.slice.call(cxEl.querySelectorAll('.cx-photo')).map(function (el) {
-    return { el: el, stop: parseInt(el.dataset.stop, 10), vid: el.querySelector('video'), playing: false };
+  // Each city's media sit in a tray in the band below the map, one tray visible at a time,
+  // so photos, captions and city labels can never overlap one another.
+  var sets = Array.prototype.slice.call(cxEl.querySelectorAll('.cx-set')).map(function (el) {
+    return {
+      el: el, stop: parseInt(el.dataset.stop, 10),
+      tiles: Array.prototype.slice.call(el.querySelectorAll('.cx-tile')).map(function (t) {
+        return { el: t, vid: t.querySelector('video'), playing: false };
+      })
+    };
   });
-  // Each city's photos form a group: the lead lands at an anchor beside the pin and the
-  // rest fan out from it; once the route moves on, the group gathers into a small pile.
-  //   a: which corner of the lead sits at the anchor, d: anchor offset from the pin in
-  //   photo-widths, dir: which way the fan opens.
-  var GROUPS = [
-    { a: [0, 1], d: [0.12, -0.12], dir: 1 },   // Buenos Aires
-    { a: [1, 0], d: [-0.12, 0.14], dir: -1 },  // Madrid
-    { a: [0, 0], d: [0.12, 0.14], dir: 1 },    // Barcelona
-    { a: [1, 1], d: [-0.12, -0.12], dir: -1 }, // Amsterdam
-    { a: [0, 1], d: [0.12, -0.12], dir: 1 },   // Vilnius
-    { a: [0, 0], d: [0.12, 0.16], dir: 1 },    // Istanbul
-    { a: [1, 1], d: [-0.12, -0.1], dir: -1 },  // Bangkok
-    { a: [0, 0], d: [0.14, 0.12], dir: 1 },    // Singapore
-    { a: [0, 0.5], d: [0.16, 0], dir: 1 },     // Hong Kong
-    { a: [1, 1], d: [-0.12, -0.12], dir: -1 }  // Dubai
-  ];
-  photos.forEach(function (ph) {
-    var g = GROUPS[ph.stop]; g.items = g.items || []; ph.k = g.items.length; g.items.push(ph);
-  });
-  var panelEl = cxEl.querySelector('.cx-panel');
+  var leadLine = cxEl.querySelector('.cx-lead');
+  var stageEl = cxEl.querySelector('.cx-stage');
   var stopsLi = Array.prototype.slice.call(cxEl.querySelectorAll('.cx-stops > li'));
-  var tallyCities = cxEl.querySelector('[data-tally="cities"]');
-  var tallyNamed = cxEl.querySelector('[data-tally="named"]');
-  var tallyHosted = cxEl.querySelector('[data-tally="hosted"]');
-  var NAMED = [1, 0, 1, 1, 0, 1, 2, 1, 3, 1];       // named conferences per stop, 11 in all
-  var HOSTED = [0, 1, 0, 0, 0, 0, 0, 1, 1, 1];      // cities where the team hosted or sponsored
   var EUROPE = [false, true, true, true, true, true, false, false, false, false];
   var HOME = 2;                                      // Barcelona
 
@@ -118,9 +102,6 @@
     SMAX = Math.max(w / minVis, 1);
     map.style.width = (1000 * SMAX) + 'px';
     map.style.height = (370 * SMAX) + 'px';
-    photos.forEach(function (ph) { ph.w = ph.el.offsetWidth; ph.h = ph.el.offsetHeight; });
-    var W0 = photos.length ? photos[0].el.offsetWidth : 192;
-    GROUPS.forEach(function (g) { g.W = W0; });
   }
 
   function visFor(i) {
@@ -161,7 +142,7 @@
   function drawCircuit(act, settle) {
     var p = reduce ? 1 : act.p;
     var w = view.clientWidth, h = view.clientHeight;
-    var ax = small.matches ? 0.5 : 0.6, ay = small.matches ? 0.36 : 0.48;
+    var ax = 0.5, ay = small.matches ? 0.5 : 0.48;
     var T;
     if (reduce) {
       T = small.matches ? { x: 585, y: 175, vis: 520 } : { x: 585, y: 180, vis: 560 };
@@ -183,7 +164,7 @@
     }
 
     // cities ignite as the head reaches them
-    var lit = 0, named = 0, hosted = 0, current = -1;
+    var lit = 0, current = -1;
     for (var c = 0; c < cities.length; c++) {
       var C = cities[c];
       var ig = reduce ? 1 : smooth((p - arrive[c]) / 0.025);
@@ -193,94 +174,115 @@
       C.el.style.setProperty('--swell', swell.toFixed(3));
       C.sx = tx + C.x * s; C.sy = ty + C.y * s;
       C.el.style.transform = 'translate3d(' + C.sx.toFixed(1) + 'px,' + C.sy.toFixed(1) + 'px,0)';
-      if (reduce || p >= arrive[c]) { lit++; named += NAMED[c]; hosted += HOSTED[c]; current = c; }
+      if (reduce || p >= arrive[c]) { lit++; current = c; }
     }
-    tallyCities.textContent = lit + '/10';
-    tallyNamed.textContent = named + '/11';
-    tallyHosted.textContent = hosted;
+    cxEl.__lit = lit;
     for (var l = 0; l < stopsLi.length; l++) stopsLi[l].classList.toggle('on', l === Math.max(current, 0));
 
-    // photos drop out of the sky onto their pin, fan open, then gather into a pile
+    // the tray: the current city's media land in the band, one tray at a time
     if (reduce) return;
-    var limBottom = small.matches ? panelEl.offsetTop - 10 : h - 10;
-    GROUPS.forEach(function (g, gi) {
-      if (!g.items) return;
-      var C = cities[gi];
-      var later = gi < N ? smooth((p - arrive[gi + 1]) / 0.04) : 0;
-      var isNow = current === gi && later < 0.5;
-      // open layout relative to the pin, at full size
-      var W = g.W, L = g.items[0];
-      var x = g.d[0] * W - g.a[0] * L.w, y = g.d[1] * W - g.a[1] * L.h;
-      var pos = [];
-      for (var k = 0; k < g.items.length; k++) {
-        var it = g.items[k];
-        if (k > 0) {
-          var prev = g.items[k - 1];
-          x = g.dir > 0 ? x + prev.w * 0.62 : x - it.w * 0.62;
-          y = pos[0].y + k * 0.14 * W;
-        }
-        pos.push({ x: x, y: y });
-      }
-      // keep an open fan on screen
-      var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-      pos.forEach(function (q, k) { var it = g.items[k];
-        minX = Math.min(minX, C.sx + q.x); maxX = Math.max(maxX, C.sx + q.x + it.w);
-        minY = Math.min(minY, C.sy + q.y); maxY = Math.max(maxY, C.sy + q.y + it.h); });
-      var shx = 0, shy = 0;
-      if (maxX > w - 10) shx = (w - 10) - maxX;
-      if (minX + shx < 10) shx = 10 - minX;
-      if (maxY > limBottom) shy = limBottom - maxY;
-      if (minY + shy < 10) shy = 10 - minY;
-      for (var j = 0; j < g.items.length; j++) {
-        var ph = g.items[j], q = pos[j];
-        var land = smooth((p - arrive[gi] - j * 0.012) / 0.03);
-        var pileS = 0.5;
-        var ox = lerp(q.x + shx, pos[0].x * pileS + j * g.dir * 7, later);
-        var oy = lerp(q.y + shy, pos[0].y * pileS + j * 5, later);
-        var sc = lerp(1, pileS, later) * (1.06 - land * 0.06);
-        var rot = (j % 2 ? 2.5 : -2) * (1 - land * 0.5) + later * (j % 2 ? 4 : -3);
-        var drop = (1 - land) * -46;
-        ph.el.style.transformOrigin = '0 0';
-        ph.el.style.transform = 'translate3d(' + (C.sx + ox).toFixed(1) + 'px,' + (C.sy + oy + drop).toFixed(1) + 'px,0) rotate(' + rot.toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
-        ph.el.style.opacity = (land * (1 - later * 0.55)).toFixed(3);
-        ph.el.classList.toggle('piled', later > 0.25);
-        ph.el.style.zIndex = isNow ? String(100 - j) : String(gi * 4 + (4 - j));
-        if (ph.vid) {
-          var want = land > 0.5 && later < 0.5 && act.live;
-          if (want && !ph.playing) { ph.playing = true; var pr = ph.vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
-          else if (!want && ph.playing) { ph.playing = false; ph.vid.pause(); }
+    var stR = stageEl.getBoundingClientRect();
+    var shown = null;
+    sets.forEach(function (S) {
+      var gi = S.stop;
+      var inA = smooth((p - arrive[gi]) / 0.03);
+      var out = gi < N ? smooth((p - (arrive[gi + 1] - 0.022)) / 0.018) : 0;   // gives way just before the next city lands
+      var vis = Math.min(inA, 1 - out);
+      S.el.style.opacity = vis > 0.001 ? '1' : '0';
+      S.el.style.pointerEvents = 'none';
+      if (vis > 0.5) shown = S;
+      for (var j = 0; j < S.tiles.length; j++) {
+        var T = S.tiles[j];
+        var land = smooth((p - arrive[gi] - j * 0.01) / 0.03) * (1 - out);
+        T.el.style.opacity = land.toFixed(3);
+        T.el.style.transform = 'scale(' + (0.94 + land * 0.06).toFixed(4) + ')';
+        if (T.vid) {
+          var want = land > 0.5 && act.live;
+          if (want && !T.playing) { T.playing = true; var pr = T.vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
+          else if (!want && T.playing) { T.playing = false; T.vid.pause(); }
         }
       }
     });
+    // a thin leader from the lit pin down to its tray
+    if (shown && shown.tiles.length) {
+      var C2 = cities[shown.stop], t0 = shown.tiles[0].el.getBoundingClientRect();
+      var vr = view.getBoundingClientRect();
+      var x0 = vr.left - stR.left + C2.sx, y0 = vr.top - stR.top + C2.sy + 6;
+      var x1 = t0.left - stR.left + Math.min(24, t0.width / 2), y1 = t0.top - stR.top - 4;
+      var dx = x1 - x0, dy = y1 - y0, len = Math.hypot(dx, dy);
+      leadLine.style.height = len.toFixed(1) + 'px';
+      leadLine.style.transform = 'translate3d(' + x0.toFixed(1) + 'px,' + y0.toFixed(1) + 'px,0) rotate(' + (Math.atan2(dy, dx) - Math.PI / 2).toFixed(4) + 'rad)';
+      leadLine.style.opacity = (y1 > y0 + 8) ? '0.7' : '0';
+    } else {
+      leadLine.style.opacity = '0';
+    }
   }
 
-  /* ------------------------------------------------------------- forbes */
-  var fw = document.getElementById('forbes-wording');
-  Array.prototype.forEach.call(document.querySelectorAll('[data-forbes]'), function (el) { if (fw) el.textContent = fw.textContent; });
-  var flip = document.querySelector('.proof-flip');
-  if (flip && !reduce && 'IntersectionObserver' in window) {
-    var fio = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        fio.disconnect();
-        var pr = flip.play(); if (pr && pr.catch) pr.catch(function () {});
-      });
-    }, { threshold: 0.6 });
-    fio.observe(flip);
-  }
-
-  /* ---------------------------------------------------------------- yacht */
-  var yx = document.getElementById('yacht');
-  var frame = yx.querySelector('.yx-frame');
-  function drawYacht() {
-    if (reduce) return;
-    // The iris opens while the stage slides in, from Dubai's light into the night itself.
-    var top = yx.getBoundingClientRect().top;
-    var e = smooth(1 - top / innerHeight);
-    if (top > innerHeight) e = 0;
-    var r = lerp(3, 76, e);
-    frame.style.clipPath = e >= 0.999 ? 'none' : 'circle(' + r.toFixed(2) + '% at 50% 50%)';
-  }
+  /* ------------------------------------------------------------- carousel */
+  (function () {
+    var root = document.querySelector('.cr');
+    if (!root) return;
+    var track = root.querySelector('.cr-track');
+    var slides = Array.prototype.slice.call(track.children);
+    var now = root.querySelector('[data-cr-now]');
+    root.querySelector('[data-cr-total]').textContent = slides.length;
+    var prev = root.querySelector('[data-cr="prev"]'), next = root.querySelector('[data-cr="next"]');
+    var play = root.querySelector('[data-cr="play"]');
+    var behavior = reduce ? 'auto' : 'smooth';
+    function index() {
+      var x = track.scrollLeft, best = 0, d = Infinity;
+      for (var i = 0; i < slides.length; i++) {
+        var dd = Math.abs(slides[i].offsetLeft - track.offsetLeft - x);
+        if (dd < d) { d = dd; best = i; }
+      }
+      return best;
+    }
+    function atEnd() { return track.scrollLeft + track.clientWidth >= track.scrollWidth - 4; }
+    // `cur` is the slide we are heading to; it is only re-read from the scroll position once a
+    // scroll has settled, so rapid presses never read a half-finished smooth scroll.
+    var cur = 0, moving = false, settleT = 0;
+    function go(i) {
+      i = (i + slides.length) % slides.length;
+      cur = i; moving = true; render();
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: behavior });
+    }
+    function render() { now.textContent = cur + 1; slides.forEach(function (s, k) { s.classList.toggle('is-now', k === cur); }); }
+    function sync() {
+      var at = index(), end = atEnd();
+      if (end && moving && cur > at) { /* tail slides share the last scroll position; keep the target */ }
+      else cur = end ? slides.length - 1 : at;
+      moving = false; render();
+    }
+    function fwd() { go(cur >= slides.length - 1 ? 0 : cur + 1); }
+    function back() { go(cur <= 0 ? slides.length - 1 : cur - 1); }
+    prev.addEventListener('click', function () { back(); hold(); });
+    next.addEventListener('click', function () { fwd(); hold(); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); fwd(); hold(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); back(); hold(); }
+      else if (e.key === 'Home') { e.preventDefault(); go(0); hold(); }
+      else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); hold(); }
+    });
+    var raf = 0;
+    track.addEventListener('scroll', function () { clearTimeout(settleT); settleT = setTimeout(sync, 140); }, { passive: true });
+    // gentle autoplay: off under reduced motion, paused on hover, focus, touch, offscreen, or by the button
+    var paused = reduce, hovering = false, focused = false, visible = false, timer = 0;
+    function setPaused(v) { paused = v; play.setAttribute('aria-pressed', v ? 'true' : 'false'); play.setAttribute('aria-label', v ? 'Play slideshow' : 'Pause slideshow'); }
+    setPaused(paused);
+    play.addEventListener('click', function () { setPaused(!paused); });
+    function hold() { clearInterval(timer); timer = setInterval(tick, 5000); }
+    function tick() { if (paused || hovering || focused || !visible || document.hidden) return; fwd(); }
+    root.addEventListener('pointerenter', function () { hovering = true; });
+    root.addEventListener('pointerleave', function () { hovering = false; });
+    root.addEventListener('focusin', function () { focused = true; });
+    root.addEventListener('focusout', function () { focused = false; });
+    track.addEventListener('touchstart', function () { hovering = true; }, { passive: true });
+    track.addEventListener('touchend', function () { setTimeout(function () { hovering = false; }, 4000); }, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(track);
+    }
+    hold(); sync();
+  })();
 
   /* ---------------------------------------------------------------- index */
   var ixLinks = Array.prototype.slice.call(document.querySelectorAll('.ix ol a'));
@@ -299,7 +301,7 @@
 
   // Published for the verification harness: the rendered circuit state, rounded.
   function verifyState(act) {
-    var lit = tallyCities.textContent;
+    var lit = cxEl.__lit || 0;
     cxEl.querySelector('.cx-stage').setAttribute('data-sc-verify-state',
       lit + '|' + Math.round(cam.x) + ',' + Math.round(cam.y) + ',' + Math.round(cam.vis));
   }
@@ -342,7 +344,6 @@
     var near = cxAct && (cxAct.live || reduce);
     if (near) drawCircuit(cxAct, Math.abs(scrollY - lastY) > innerHeight * 1.5);
     if (near) verifyState(cxAct);
-    drawYacht();
     drawIndex();
     if (kx.getBoundingClientRect().top < innerHeight) placeLead();
     lastY = scrollY;
