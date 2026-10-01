@@ -2,284 +2,521 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marti Pla Rabell · Web3 Growth & Partnerships</title>
-<meta name="description" content="Web3 growth and partnerships leader. Ex-CMO of Decubate. 9+ years in crypto GTM, token launches, community and events.">
-<meta property="og:title" content="Marti Pla Rabell · Web3 Growth & Partnerships">
-<meta property="og:description" content="Ex-CMO of Decubate. 9+ years in crypto GTM, token launches, community and events.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marti Pla Rabell · Web3 Growth &amp; Partnerships</title>
+<meta name="description" content="Web3 growth and partnerships operator. Ex-CMO of Decubate. 9+ years in crypto go-to-market, token launches, community and events.">
+<meta property="og:title" content="Marti Pla Rabell · Web3 Growth &amp; Partnerships">
+<meta property="og:description" content="Ex-CMO of Decubate. 9+ years in crypto go-to-market, token launches, community and events.">
 <meta property="og:image" content="img/amsterdam-dbw-rwa-talk.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23212932'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%23c7e1f8'%3EMP%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#070a0f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070a0f'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23ffb24a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Geist:wght@400..600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/marti-cut.webp">
+<link rel="stylesheet" href="scrollcraft.css">
+<noscript><style>[data-sc-cue],[data-sc-in],[data-sc-stagger]>*{opacity:1!important;transform:none!important}.cx-photo{opacity:1!important}</style></noscript>
 <style>
   :root {
-    --ink: #1c2129;
-    --navy: #212932;
-    --slate: #7b8b99;
-    --sky: #c7e1f8;
-    --gold: #8a7d63;
-    --paper: #f6f7f9;
-    --card: #ffffff;
-    --text: #2b3138;
-    --muted: #5d6670;
-    --line: #e2e6eb;
+    --sc-canvas:     #070a0f;
+    --sc-surface:    #0e131b;
+    --sc-ink:        #eef1f5;
+    --sc-ink-soft:   #9aa6b7;
+    --sc-accent:     #ffb24a;
+    --sc-accent-ink: #1a1006;
+    --sc-font-display: "Archivo", system-ui, sans-serif;
+    --sc-font-text:    "Geist", system-ui, sans-serif;
+    --sc-font-mono:    "Geist", system-ui, sans-serif;
+    --night: #05080c;
+    --dot: #7d93b0;
+    --wide: 112%;
   }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--text);
-    font: 16px/1.6 Inter, system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
+  body { background: var(--sc-canvas); }
+  .sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .disp { font-family: var(--sc-font-display); font-stretch: var(--wide); font-weight: 700; letter-spacing: -0.03em; line-height: 0.94; margin: 0; text-wrap: balance; }
+  .kick { font-size: var(--sc-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--sc-ink-soft); font-weight: 500; margin: 0; }
+
+  /* --- the one action ------------------------------------------------- */
+  .tg {
+    display: inline-flex; align-items: center; gap: 0.55em; white-space: nowrap;
+    background: var(--sc-accent); color: var(--sc-accent-ink);
+    font-weight: 600; font-size: var(--sc-t-sm); text-decoration: none;
+    padding: 0.8em 1.2em; border-radius: var(--sc-r-sm);
+    box-shadow: var(--sc-e1);
+    transition: transform 140ms var(--sc-ease-out), background-color 160ms var(--sc-ease-out);
   }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  h1, h2, h3 { font-family: "League Spartan", sans-serif; line-height: 1.1; margin: 0; color: var(--ink); }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-  section { padding: 72px 0; }
-  .eyebrow {
-    font: 600 12px/1 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 14px;
+  .tg svg { width: 1.05em; height: 1.05em; flex: none; }
+  .tg:active { transform: translateY(1px) scale(0.98); }
+  @media (hover: hover) and (pointer: fine) { .tg:hover { background: #ffc06a; } }
+  .links { display: flex; flex-wrap: wrap; gap: 0.4em 1.2em; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+  .links a { color: var(--sc-ink); text-decoration-color: color-mix(in oklab, var(--sc-ink) 40%, transparent); }
+  .links a:hover { text-decoration-color: var(--sc-accent); }
+
+  /* --- index: the nav is a list of the objects, and it jumps ------------- */
+  .ix { position: fixed; z-index: var(--sc-z-chrome); top: clamp(1rem, 3vh, 2rem); right: var(--sc-gutter); display: flex; flex-direction: column; align-items: flex-end; gap: 0.9rem; }
+  .ix ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem; }
+  .ix ol a {
+    display: flex; align-items: center; gap: 0.55rem; padding: 0.3rem 0.1rem;
+    font-size: var(--sc-t-sm); color: var(--sc-ink-soft); text-decoration: none;
+    transition: color 160ms var(--sc-ease-out);
   }
-  h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 28px; }
+  .ix ol a::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: color-mix(in oklab, var(--sc-ink) 26%, transparent); transition: background-color 200ms var(--sc-ease-out), transform 200ms var(--sc-ease-out); }
+  .ix ol a.is-seen::after { background: var(--sc-accent); }
+  .ix ol a.is-here { color: var(--sc-ink); }
+  .ix ol a.is-here::after { transform: scale(1.5); }
+  @media (hover: hover) and (pointer: fine) { .ix ol a:hover { color: var(--sc-ink); } }
+  .ix .tg { font-size: var(--sc-t-xs); padding: 0.7em 1em; }
 
-  /* Hero */
-  .hero { background: var(--navy); color: #fff; position: relative; overflow: hidden; padding: 0; }
-  .hero::before {
-    content: ""; position: absolute; inset: auto -10% -40% 40%; height: 120%;
-    background: linear-gradient(160deg, rgba(199,225,248,.18), rgba(123,139,153,.05));
-    transform: rotate(-8deg);
+  /* --- 1 · Marti: layered portrait, object one, already labelled -------- */
+  .hx { background: var(--night); }
+  .hx-stage { background: var(--night); }
+  .hx-plane { position: absolute; pointer-events: none; will-change: transform; }
+  .hx-sky { inset: -6% -4% -4% -4%; background: url(assets/hero-sky.webp) center 70% / cover no-repeat; }
+  .hx-lights { left: -4%; right: -4%; bottom: -8%; height: 52%; background: url(assets/hero-lights.webp) center bottom / cover no-repeat; -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 34%, #000 70%); mask-image: linear-gradient(to right, transparent 0%, transparent 34%, #000 70%); }
+  .hx-sky { -webkit-mask-image: linear-gradient(to right, rgb(0 0 0 / 0.22) 0%, rgb(0 0 0 / 0.22) 32%, #000 66%); mask-image: linear-gradient(to right, rgb(0 0 0 / 0.22) 0%, rgb(0 0 0 / 0.22) 32%, #000 66%); }
+  .hx-name { left: var(--sc-gutter); top: clamp(5.5rem, 17vh, 11rem); z-index: 3; }
+  .hx-name h1 { font-size: clamp(3.6rem, 9.6vw, 10rem); color: var(--sc-ink); }
+  .hx-name h1 span { display: block; }
+  .hx-subject { right: 9vw; bottom: 0; height: min(88svh, 52rem); aspect-ratio: 550 / 870; z-index: 4; transform-origin: 50% 100%; }
+  .hx-subject img { width: 100%; height: 100%; max-width: none; filter: saturate(0.94) brightness(0.96); }
+  .hx-subject img { -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 99%); mask-image: linear-gradient(to bottom, #000 74%, transparent 99%); }
+  .hx-fg { inset: 0; z-index: 6; }
+  .hx-fg i { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgb(255 178 74 / 0.55), rgb(255 178 74 / 0) 68%); filter: blur(5px); }
+  .hx-fg i:nth-child(1) { width: 15rem; height: 15rem; right: -4rem; bottom: -5rem; opacity: 0.55; }
+  .hx-fg i:nth-child(2) { width: 7rem; height: 7rem; right: 21vw; bottom: -2.5rem; opacity: 0.35; }
+  .hx-fg i:nth-child(3) { width: 10rem; height: 10rem; left: 38vw; bottom: -6rem; opacity: 0.28; background: radial-gradient(circle, rgb(120 170 255 / 0.5), rgb(120 170 255 / 0) 68%); }
+  .hx-floor { position: absolute; inset: auto 0 0 0; height: 16vh; z-index: 7; background: linear-gradient(to top, var(--night), transparent); pointer-events: none; }
+  .hx-label { position: absolute; z-index: 8; left: var(--sc-gutter); bottom: clamp(2.5rem, 11vh, 7rem); width: min(31rem, 42vw); display: grid; gap: var(--sc-4); }
+  .hx-words { display: grid; gap: var(--sc-4); }
+  .hx-label .role { font-family: var(--sc-font-display); font-stretch: var(--wide); font-weight: 600; font-size: var(--sc-t-xl); letter-spacing: -0.015em; line-height: 1.1; margin: 0; color: var(--sc-accent); }
+  .hx-label .bio { margin: 0; color: var(--sc-ink); font-size: var(--sc-t-lg); line-height: 1.45; max-width: 30ch; }
+  .hx-label .act-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-3) var(--sc-5); margin-top: var(--sc-2); }
+
+  .cred { display: inline-flex; align-items: center; gap: 0.6rem; margin: 0 0 var(--sc-4); font-size: var(--sc-t-base); font-weight: 600; letter-spacing: 0.02em; color: var(--sc-ink); }
+  .cred::before { content: ""; width: 1.6rem; height: 2px; background: var(--sc-accent); }
+  .tag { display: inline-block; margin-left: 0.5em; padding: 0.12em 0.5em; border-radius: var(--sc-r-sm); font-style: normal; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.5; vertical-align: 0.12em; white-space: nowrap; color: var(--sc-ink-soft); border: 1px solid var(--sc-hairline-strong); }
+  .tag.host { color: var(--sc-accent-ink); background: var(--sc-accent); border-color: var(--sc-accent); }
+  .proof { display: grid; grid-template-columns: repeat(2, minmax(0, 15rem)); gap: var(--sc-6); margin: 0 0 var(--sc-8); }
+  .proof-item { margin: 0; display: grid; gap: var(--sc-3); align-content: start; }
+  .proof-media { aspect-ratio: 4 / 5; border-radius: var(--sc-r-md); overflow: hidden; background: var(--sc-surface); box-shadow: var(--sc-e2); }
+  .proof-media :is(img, video) { width: 100%; height: 100%; object-fit: cover; }
+  .proof figcaption b { display: block; font-family: var(--sc-font-display); font-stretch: var(--wide); font-weight: 650; font-size: var(--sc-t-base); letter-spacing: -0.01em; line-height: 1.25; color: var(--sc-ink); }
+  .proof figcaption b .tag { font-family: var(--sc-font-text); }
+  .proof figcaption span { display: block; margin-top: 0.3rem; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); line-height: 1.45; }
+
+  /* --- 2 · Record: the roles as identical labels ------------------------ */
+  .rx { background: var(--sc-canvas); padding-block: clamp(4rem, 9vw, 8rem) clamp(4rem, 8vw, 7rem); }
+  .rx-head { display: grid; gap: var(--sc-5); margin-bottom: var(--sc-8); }
+  .rx-head h2 { font-size: var(--sc-t-3xl); }
+  .rx-head p { margin: 0; max-width: 58ch; color: var(--sc-ink-soft); font-size: var(--sc-t-lg); line-height: 1.5; }
+  .rx-head p b { color: var(--sc-ink); font-weight: 500; }
+  .ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--sc-hairline-strong); }
+  .role-row { display: grid; grid-template-columns: minmax(13rem, 1.05fr) minmax(0, 1.6fr) minmax(11rem, 0.9fr); gap: var(--sc-4) var(--sc-7); padding-block: var(--sc-6); border-bottom: 1px solid var(--sc-hairline); align-items: start; }
+  .role-row h3 { font-family: var(--sc-font-display); font-stretch: var(--wide); font-weight: 650; font-size: var(--sc-t-xl); letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 var(--sc-2); }
+  .role-row .what { margin: 0; font-size: var(--sc-t-base); color: var(--sc-ink); }
+  .role-row .when { margin: 0; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); font-variant-numeric: tabular-nums; }
+  .role-row ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--sc-2); color: var(--sc-ink-soft); max-width: 58ch; }
+  .role-row ul li { padding-left: 1rem; position: relative; }
+  .role-row ul li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 0.45rem; height: 1px; background: var(--sc-ink-soft); }
+  .role-row ul b { color: var(--sc-ink); font-weight: 500; }
+  .fig { margin: 0; display: grid; gap: var(--sc-4); }
+  .fig p { margin: 0; }
+  .fig strong { display: block; font-family: var(--sc-font-display); font-stretch: var(--wide); font-weight: 700; font-size: var(--sc-t-2xl); letter-spacing: -0.03em; line-height: 1; color: var(--sc-accent); font-variant-numeric: tabular-nums; }
+  .fig span { display: block; margin-top: 0.35rem; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); line-height: 1.4; }
+  .also { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sc-6) var(--sc-7); margin-top: var(--sc-8); }
+  .also h3 { margin: 0 0 var(--sc-3); font-size: var(--sc-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--sc-ink-soft); font-weight: 500; }
+  .also p { margin: 0; font-size: var(--sc-t-sm); line-height: 1.55; color: var(--sc-ink); }
+
+  /* --- 3 · Circuit: the peak ------------------------------------------- */
+  .cx { background: var(--night); }
+  .cx-stage { background: var(--night); }
+  .cx-view { position: absolute; inset: 0; overflow: hidden; }
+  .cx-map { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+  .cx-map img, .cx-map svg { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; }
+  .cx-map img { opacity: 0.34; }
+  .cx-route-ghost { fill: none; stroke: color-mix(in oklab, var(--sc-ink) 14%, transparent); stroke-width: 0.6; stroke-dasharray: 1.5 2.5; }
+  .cx-route { fill: none; stroke: var(--sc-accent); stroke-width: 1; stroke-linecap: round; }
+  .cx-pins { position: absolute; inset: 0; pointer-events: none; }
+  .cx-city { position: absolute; left: 0; top: 0; width: 0; height: 0; will-change: transform; --ig: 0; }
+  .cx-city .lt { position: absolute; left: -5rem; top: -5rem; width: 10rem; height: 10rem; border-radius: 50%;
+    background: radial-gradient(circle, rgb(255 196 110 / 0.9) 0, rgb(255 178 74 / 0.42) 14%, rgb(255 150 50 / 0.12) 38%, rgb(255 150 50 / 0) 66%);
+    opacity: var(--ig); transform: scale(calc(0.2 + var(--ig) * 0.8 + var(--swell, 0) * 2.6)); }
+  .cx-city .dt { position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: color-mix(in oklab, var(--sc-ink) calc(30% + var(--ig) * 70%), #f5c27a calc(var(--ig) * 100%)); }
+  .cx-city .nm { position: absolute; left: 10px; top: -0.62rem; white-space: nowrap; font-size: var(--sc-t-xs); font-weight: 500; letter-spacing: 0.02em; color: var(--sc-ink); opacity: var(--ig); }
+  .cx-city.left .nm { left: auto; right: 10px; }
+  .cx-city.below .nm { top: 0.4rem; }
+  .cx-hush { position: absolute; z-index: 5; left: var(--sc-gutter); top: clamp(5rem, 14vh, 9rem); width: min(40rem, 70vw); }
+  .cx-hush h2 { font-size: var(--sc-t-3xl); }
+  .cx-hush p { margin: var(--sc-4) 0 0; color: var(--sc-ink-soft); font-size: var(--sc-t-lg); }
+  .cx-panel { position: absolute; z-index: 6; left: var(--sc-gutter); bottom: clamp(2rem, 7vh, 4.5rem); width: min(25rem, 34vw);
+    background: color-mix(in oklab, var(--sc-surface) 92%, transparent); border: 1px solid var(--sc-hairline); border-radius: var(--sc-r-md);
+    box-shadow: var(--sc-e2), var(--sc-edge); padding: var(--sc-5); }
+  .cx-tally { display: flex; gap: var(--sc-5); margin: 0 0 var(--sc-4); padding-bottom: var(--sc-4); border-bottom: 1px solid var(--sc-hairline); font-size: var(--sc-t-xs); color: var(--sc-ink-soft); letter-spacing: 0.04em; text-transform: uppercase; }
+  .cx-tally b { display: block; font-family: var(--sc-font-display); font-stretch: var(--wide); font-size: var(--sc-t-xl); letter-spacing: -0.02em; text-transform: none; color: var(--sc-ink); font-weight: 650; font-variant-numeric: tabular-nums; margin-top: 0.2rem; }
+  .cx-tally .more { color: var(--sc-accent); }
+  .cx-stops { list-style: none; margin: 0; padding: 0; display: grid; }
+  .cx-stops > li { grid-area: 1 / 1; opacity: 0; transition: opacity 220ms var(--sc-ease-out); }
+  .cx-stops > li.on { opacity: 1; }
+  .cx-stops h3 { font-family: var(--sc-font-display); font-stretch: var(--wide); font-size: var(--sc-t-xl); font-weight: 650; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 var(--sc-2); }
+  .cx-stops .ev { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; color: var(--sc-ink); font-size: var(--sc-t-sm); line-height: 1.45; }
+  .cx-photos { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+  .cx-photos { --W: 12rem; }
+  .cx-photo { position: absolute; left: 0; top: 0; margin: 0; width: var(--W); opacity: 0; will-change: transform, opacity; }
+  .cx-photo.wide { width: calc(var(--W) * 1.45); }
+  .cx-photo.big { width: calc(var(--W) * 1.3); }
+  .cx-photo video { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: var(--sc-r-sm); box-shadow: var(--sc-e3); background: #0b0f15; }
+  .cx-photo figcaption .tag { margin: 0 0.4em 0.2em 0; }
+  .cx-photo figcaption { transition: opacity 200ms var(--sc-ease-out); }
+  .cx-photo.piled figcaption { opacity: 0; }
+  .cx-photo img { width: 100%; height: auto; border-radius: var(--sc-r-sm); box-shadow: var(--sc-e3); outline: 1px solid rgb(255 255 255 / 0.08); outline-offset: -1px; }
+  .cx-photo figcaption { margin-top: 0.5rem; font-size: 0.75rem; line-height: 1.35; color: var(--sc-ink); text-shadow: 0 1px 2px rgb(0 0 0 / 0.6); }
+  .cx-more { margin: var(--sc-4) 0 0; font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
+
+  /* --- 4 · Yacht: the film, framed and labelled ------------------------ */
+  .yx { background: var(--night); }
+  .yx-stage { background: var(--night); }
+  .yx-frame { position: absolute; z-index: 2; right: var(--sc-gutter); top: calc(50% + 5rem); translate: 0 -50%; width: min(56vw, calc((100svh - 20rem) * 16 / 9)); aspect-ratio: 16 / 9; border-radius: var(--sc-r-md); overflow: hidden; background: #0b0f15; box-shadow: var(--sc-e3); }
+  .yx-label { position: absolute; z-index: 3; left: var(--sc-gutter); top: calc(50% + 5rem); translate: 0 -50%; width: min(24rem, calc(100vw - 56vw - var(--sc-gutter) * 3)); display: grid; gap: var(--sc-4); }
+  .yx-label h2 { font-size: var(--sc-t-2xl); }
+  .yx-label ul { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--sc-3); color: var(--sc-ink-soft); font-size: var(--sc-t-base); }
+  .yx-label ul li { padding-left: 1rem; position: relative; }
+  .yx-label ul li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 0.45rem; height: 1px; background: var(--sc-ink-soft); }
+  .yx-label .film { display: inline-flex; align-items: center; gap: 0.6em; width: max-content; color: var(--sc-ink); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--sc-accent); padding-bottom: 0.2em; margin-top: var(--sc-2); }
+  .yx-label .film svg { width: 0.9em; height: 0.9em; }
+
+  /* --- 5 · Contact: the inquiry plate, set as a label ------------------ */
+  .kx { background: var(--sc-canvas); min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; padding-block: clamp(3rem, 7vw, 6rem); position: relative; overflow: hidden; }
+  .kx-map { position: relative; width: 100%; aspect-ratio: 1000 / 370; max-width: 72rem; margin-inline: auto; }
+  .kx-map img { width: 100%; height: 100%; opacity: 0.34; }
+  .kx-map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .kx-map path { fill: none; stroke: var(--sc-accent); stroke-width: 1.1; opacity: 0.55; vector-effect: non-scaling-stroke; }
+  .kx-map i { position: absolute; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-radius: 50%; background: #f5c27a; box-shadow: 0 0 0 4px rgb(255 178 74 / 0.16), 0 0 0 10px rgb(255 178 74 / 0.06); }
+  .kx-map i.home { width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; background: var(--sc-accent); }
+  .kx-plate { position: absolute; left: max(var(--sc-gutter), 2%); top: 50%; translate: 0 -50%; width: min(26rem, 34%); display: grid; gap: var(--sc-3);
+    background: var(--sc-surface); border: 1px solid var(--sc-hairline); border-radius: var(--sc-r-md); box-shadow: var(--sc-e3), var(--sc-edge); padding: var(--sc-6); }
+  .kx-lead { position: absolute; height: 1px; background: linear-gradient(to right, var(--sc-accent), color-mix(in oklab, var(--sc-accent) 40%, transparent)); transform-origin: 0 50%; pointer-events: none; }
+  .kx-plate h2 { font-size: var(--sc-t-2xl); }
+  .kx-plate .meta { margin: 0; color: var(--sc-ink-soft); font-size: var(--sc-t-sm); }
+  .kx-plate .fast { margin: 0; color: var(--sc-ink); }
+  .kx-plate .tg { justify-self: start; margin-top: var(--sc-2); }
+  .kx-plate small { display: block; margin-top: var(--sc-3); padding-top: var(--sc-3); border-top: 1px solid var(--sc-hairline); color: var(--sc-ink-soft); font-size: var(--sc-t-xs); }
+
+  /* ---------------------------------------------------------------- phone */
+  @media (max-width: 860px) {
+    .ix { top: auto; bottom: 0; left: 0; right: 0; flex-direction: row; align-items: center; justify-content: space-between; gap: 0.5rem;
+      padding: 0.55rem max(0.6rem, env(safe-area-inset-left)) calc(0.55rem + env(safe-area-inset-bottom)) 0.6rem;
+      background: color-mix(in oklab, var(--sc-canvas) 94%, transparent); border-top: 1px solid var(--sc-hairline); }
+    .ix ol { flex-direction: row; gap: 0; }
+    .ix ol li:first-child { display: none; }
+    .ix ol a { flex-direction: row-reverse; font-size: 0.8125rem; padding: 0.7rem 0.45rem; gap: 0.35rem; }
+    .ix .tg { font-size: 0.8125rem; padding: 0.75em 0.85em; }
+    .hx-name { top: 1.6rem; left: var(--sc-gutter); right: var(--sc-gutter); z-index: 5; }
+    .hx-name h1 { font-size: clamp(2.9rem, 14.5vw, 4.2rem); }
+    .hx-sky { background-image: url(assets/hero-sky-m.webp); inset: -4% -6% 34% -6%; background-position: center 80%; }
+    .hx-lights { background-image: url(assets/hero-lights-m.webp); bottom: 30%; height: 30%; }
+    .hx-subject { right: auto; left: 50%; margin-left: calc(min(47svh, 26rem) * -0.316 + 2rem); bottom: calc(18.5rem + env(safe-area-inset-bottom)); height: min(47svh, 26rem); }
+    .hx-floor { height: auto; top: auto; bottom: 0; height: calc(19.5rem + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--night) 82%, transparent); }
+    .hx-label { width: auto; right: var(--sc-gutter); bottom: calc(4.6rem + env(safe-area-inset-bottom)); gap: var(--sc-3); }
+    .hx-words { gap: var(--sc-3); }
+    .hx-label .bio { font-size: var(--sc-t-base); }
+    .hx-fg i:nth-child(1) { width: 10rem; height: 10rem; right: -3rem; bottom: 16rem; }
+    .hx-fg i:nth-child(2) { display: none; }
+    .hx-fg i:nth-child(3) { left: -3rem; bottom: 17rem; }
+    .role-row { grid-template-columns: 1fr; gap: var(--sc-3); padding-block: var(--sc-5); }
+    .fig { grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); margin-top: var(--sc-2); }
+    .also { grid-template-columns: 1fr 1fr; gap: var(--sc-5); }
+    .rx { padding-bottom: clamp(5rem, 14vw, 7rem); }
+    .cx-hush { top: 1.6rem; width: auto; right: var(--sc-gutter); }
+    .cx-hush h2 { font-size: var(--sc-t-2xl); }
+    .cx-panel { left: 0.75rem; right: 0.75rem; width: auto; bottom: calc(4.4rem + env(safe-area-inset-bottom)); padding: var(--sc-4); }
+    .cx-tally { gap: var(--sc-4); margin-bottom: var(--sc-3); padding-bottom: var(--sc-3); }
+    .cx-tally b { font-size: var(--sc-t-lg); }
+    .cx-photos { --W: 6.4rem; }
+    .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sc-3); }
+    .proof figcaption b { font-size: var(--sc-t-sm); }
+    .proof figcaption span { font-size: 0.75rem; }
+    .proof figcaption b .tag { display: none; }
+    .cred { font-size: 0.8125rem; margin-bottom: var(--sc-3); }
+    .cx-stops .ev { font-size: 0.8125rem; gap: 0.15rem; }
+    .cx-photo figcaption { display: none; }
+    .yx-frame { left: var(--sc-gutter); right: var(--sc-gutter); top: 1.25rem; translate: none; width: auto; aspect-ratio: auto; height: calc(100svh - 22rem); }
+    .yx-label { top: auto; translate: none; bottom: calc(4.6rem + env(safe-area-inset-bottom)); right: var(--sc-gutter); width: auto; gap: var(--sc-3); }
+    .yx-label h2 { font-size: var(--sc-t-xl); }
+    .yx-label ul { font-size: var(--sc-t-sm); gap: var(--sc-2); }
+    .kx { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+    .kx-map { width: 160%; margin-left: -48%; }
+    .kx-plate { position: relative; left: auto; top: auto; translate: none; width: auto; margin: calc(var(--sc-6) * -1) var(--sc-gutter) 0; }
+    .kx-lead { display: none; }
   }
-  .hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 72px; position: relative; }
-  .hero h1 { color: #fff; font-size: clamp(40px, 6.5vw, 68px); font-weight: 800; letter-spacing: -.01em; }
-  .hero .role { font: 500 clamp(18px, 2.4vw, 24px)/1.3 "League Spartan", sans-serif; color: var(--sky); margin: 14px 0 22px; text-transform: uppercase; letter-spacing: .06em; }
-  .hero p { color: #d5dde5; max-width: 560px; margin: 0 0 30px; font-size: 17px; }
-  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px;
-    font-weight: 600; font-size: 15px; text-decoration: none; transition: transform .15s, background .15s;
+  @media (max-width: 374px) {
+    .ix ol a { font-size: 0.75rem; padding-inline: 0.32rem; }
+    .ix .tg { font-size: 0.75rem; padding-inline: 0.7em; }
+    .ix .tg svg { display: none; }
   }
-  .btn:hover { transform: translateY(-1px); }
-  .btn.primary { background: var(--sky); color: var(--ink); }
-  .btn.ghost { border: 1px solid rgba(255,255,255,.35); color: #fff; }
-  .btn.ghost:hover { background: rgba(255,255,255,.08); }
-  .btn svg { width: 18px; height: 18px; }
-  .hero-photo { border-radius: 22px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.35); aspect-ratio: 4/5; }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-
-  /* Stats */
-  .stats { background: var(--card); border-bottom: 1px solid var(--line); padding: 0; }
-  .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .stat { padding: 28px 16px; border-right: 1px solid var(--line); }
-  .stat:last-child { border-right: 0; }
-  .stat b { display: block; font: 800 34px/1 "League Spartan", sans-serif; color: var(--ink); }
-  .stat span { color: var(--muted); font-size: 14px; }
-
-  /* What I do */
-  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
-  .card h3 { font-size: 20px; margin-bottom: 8px; }
-  .card p { margin: 0; color: var(--muted); font-size: 15px; }
-
-  /* Model */
-  .model { background: var(--navy); color: #fff; }
-  .model h2 { color: #fff; }
-  .model .lead { color: #d5dde5; max-width: 720px; margin: -10px 0 32px; }
-  .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
-  .step { background: rgba(255,255,255,.06); border: 1px solid rgba(199,225,248,.2); border-radius: 16px; padding: 24px; position: relative; }
-  .step::before { counter-increment: step; content: "0" counter(step); font: 800 14px/1 "League Spartan", sans-serif; color: var(--sky); letter-spacing: .1em; }
-  .step h3 { color: #fff; font-size: 22px; margin: 10px 0 8px; }
-  .step p { margin: 0; color: #c9d3dc; font-size: 15px; }
-
-  /* Experience */
-  .timeline { border-left: 2px solid var(--line); margin-left: 6px; }
-  .job { position: relative; padding: 0 0 30px 28px; }
-  .job::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--navy); }
-  .job:last-child { padding-bottom: 0; }
-  .job-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .job h3 { font-size: 21px; }
-  .job .title { color: var(--gold); font-weight: 600; font-size: 15px; }
-  .job .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
-  .job ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
-  .job li { margin: 3px 0; }
-
-  /* Gallery */
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .gallery figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-  .gallery img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
-  .gallery figcaption { padding: 12px 14px; font-size: 14px; color: var(--muted); }
-  .gallery figcaption b { display: block; color: var(--ink); font-weight: 600; }
-
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-  .chip { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; font-weight: 500; }
-  .chip.more { background: var(--navy); color: #fff; border-color: var(--navy); }
-
-  /* Contact */
-  .contact { background: var(--navy); color: #fff; text-align: center; }
-  .contact h2 { color: #fff; }
-  .contact p { color: #d5dde5; margin: -12px auto 28px; max-width: 520px; }
-  .contact .cta { justify-content: center; }
-  footer { background: var(--ink); color: var(--slate); text-align: center; font-size: 13px; padding: 22px; }
-
-  @media (max-width: 900px) {
-    .hero .wrap { grid-template-columns: 1fr; gap: 32px; padding-top: 48px; padding-bottom: 48px; }
-    .hero-photo { max-width: 380px; }
-    .grid4, .gallery { grid-template-columns: repeat(2, 1fr); }
-    .flow { grid-template-columns: 1fr; }
-    .stats .wrap { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(2) { border-right: 0; }
-    .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  @media (max-width: 860px) and (max-height: 700px) {
+    .hx-label .bio { display: none; }
+    .hx-subject { height: 48svh; bottom: calc(14rem + env(safe-area-inset-bottom)); margin-left: calc(48svh * -0.316 + 1.5rem); }
+    .hx-floor { height: 15rem; }
   }
-  @media (max-width: 520px) {
-    section { padding: 52px 0; }
-    .grid4, .gallery { grid-template-columns: 1fr; }
-    .gallery img { aspect-ratio: 4/5; }
-  }
+
+  /* -------------------------------------------- reduced motion: a still page */
+  .rm .cx-stage, .rm .hx-stage { position: relative; }
+  .rm .hx-stage { height: 100svh; min-height: 40rem; overflow: hidden; }
+  .rm .cx { padding-block: var(--sc-8) var(--sc-8); }
+  .rm .cx-stage { height: auto; overflow: visible; display: grid; gap: var(--sc-6); padding-inline: var(--sc-gutter); max-width: var(--sc-maxw); margin-inline: auto; }
+  .rm .cx-hush { position: static; width: auto; }
+  .rm .cx-view { position: relative; inset: auto; height: clamp(16rem, 52vw, 34rem); border-radius: var(--sc-r-md); }
+  .rm .cx-panel { position: static; width: auto; }
+  .rm .cx-stops { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--sc-5); }
+  .rm .cx-stops > li { grid-area: auto; opacity: 1; }
+  .rm .cx-photos { position: static; display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: var(--sc-5); pointer-events: auto; }
+  .rm .cx-photo { position: static; width: auto; opacity: 1; transform: none !important; }
+  .rm .cx-photo figcaption { display: block; }
+  .rm .yx-frame { clip-path: none !important; }
+  .rm .yx-stage { position: relative; height: 100svh; min-height: 36rem; overflow: hidden; }
+  .rm .yx-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .rm .yx-frame video { display: none; }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow">Barcelona · Working globally</div>
-      <h1>Marti Pla Rabell</h1>
-      <div class="role">Web3 Growth &amp; Partnerships</div>
-      <p>9+ years in crypto go-to-market and digital marketing. Ex-CMO of Decubate, where I ran token launches, positioning and community growth across B2C and B2B. Serial entrepreneur since 14, with a deep network of crypto founders built on the conference circuit.</p>
-      <div class="cta">
-        <a class="btn primary" href="https://t.me/iHnzZ" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1 1.4 11.6c-1-.3-1.1-1 .2-1.5L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>
-          Message on Telegram</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/martiplarabell" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn ghost" href="mailto:martiplarabell@gmail.com">Email</a>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<nav class="ix" aria-label="Index">
+  <ol>
+    <li><a href="#marti" data-ix="marti">Marti</a></li>
+    <li><a href="#record" data-ix="record">Record</a></li>
+    <li><a href="#circuit" data-ix="circuit">Circuit</a></li>
+    <li><a href="#yacht" data-ix="yacht">Yacht</a></li>
+  </ol>
+  <a class="tg" href="https://t.me/iHnzZ" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1 1.4 11.6c-1-.3-1.1-1 .2-1.5L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>
+    Message on Telegram</a>
+</nav>
+
+<main>
+
+  <!-- 1 · MARTI. Object one, already in view, already labelled. Planes, back to front:
+       sky, city lights, name, subject (real photo cutout), near light, floor, label. -->
+  <section id="marti" class="hx" data-sc-act="pin" data-sc-span="1.4" data-rm-flow>
+    <div data-sc-stage class="hx-stage">
+      <div class="hx-plane hx-sky" aria-hidden="true"></div>
+      <div class="hx-plane hx-lights" aria-hidden="true"></div>
+      <div class="hx-plane hx-name" data-sc-cue="0 1 0 0">
+        <h1 class="disp"><span>Marti Pla</span> <span>Rabell</span></h1>
+      </div>
+      <div class="hx-plane hx-subject"><img src="assets/marti-cut.webp" width="550" height="870" alt="Marti Pla Rabell in a navy suit, smiling, holding a glass of champagne"></div>
+      <div class="hx-plane hx-fg" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="hx-floor" aria-hidden="true"></div>
+      <div class="hx-label">
+        <div class="hx-words" data-sc-cue="0 1 0 0">
+          <p class="role">Web3 Growth &amp; Partnerships</p>
+          <p class="bio">9+ years in crypto go-to-market. Ex-CMO of Decubate. Based in Barcelona.</p>
+        </div>
+        <div class="act-row">
+          <a class="tg" href="https://t.me/iHnzZ" target="_blank" rel="noopener" data-sc-cue="0 1 0 0" data-sc-rise="0">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1 1.4 11.6c-1-.3-1.1-1 .2-1.5L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>
+            Message on Telegram</a>
+          <div class="links" data-sc-cue="0 1 0 0" data-sc-rise="0"><a href="https://www.linkedin.com/in/martiplarabell" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:martiplarabell@gmail.com">Email</a></div>
+        </div>
       </div>
     </div>
-    <div class="hero-photo"><img src="img/vilnius.jpg" alt="Marti Pla Rabell at a conference in Vilnius"></div>
-  </div>
-</header>
+  </section>
 
-<section class="stats">
-  <div class="wrap">
-    <div class="stat"><b>9+</b><span>years in growth &amp; GTM</span></div>
-    <div class="stat"><b>50+</b><span>Web3 conferences attended</span></div>
-    <div class="stat"><b>40+</b><span>X Spaces, 10+ as host</span></div>
-    <div class="stat"><b>150M+</b><span>market cap scaled at MidasDAO</span></div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">What I do</div>
-    <h2>Growth, partnerships and launches for crypto teams</h2>
-    <div class="grid4">
-      <div class="card"><h3>Go-to-market</h3><p>Positioning, launch plans and full-funnel growth systems, from awareness to retention.</p></div>
-      <div class="card"><h3>Partnerships &amp; BD</h3><p>Referral networks, deal-flow partners and founder relationships that bring in business.</p></div>
-      <div class="card"><h3>Token launches</h3><p>Pre-TGE raises, launch execution and the post-TGE tooling projects need once a token is live.</p></div>
-      <div class="card"><h3>Events &amp; community</h3><p>Side-events at Token2049 and Devcon, X Spaces and community programmes that fill rooms.</p></div>
+  <!-- 2 · RECORD. Five roles, one label schema: name, role and dates, facts, figure. -->
+  <section id="record" class="rx" data-sc-act="flow">
+    <div class="sc-wrap">
+      <div class="rx-head" data-sc-in data-sc-stagger="70">
+        <h2 class="disp">Record</h2>
+        <p><b>9+ years in crypto go-to-market and digital marketing.</b> Ex-CMO of Decubate: token launches, positioning and community growth across B2C and B2B. Serial entrepreneur since 14, with a deep crypto-founder network. Based in Barcelona.</p>
+      </div>
+      <div class="proof" data-sc-in data-sc-stagger="80">
+        <figure class="proof-item">
+          <div class="proof-media"><img src="img/r2/token2049-singapore-vitalik.webp" width="859" height="1100" alt="Selfie of Marti with Vitalik Buterin behind him at Token2049 Singapore" loading="lazy"></div>
+          <figcaption><b>With Vitalik Buterin</b><span>Token2049 Singapore</span></figcaption>
+        </figure>
+        <figure class="proof-item">
+          <div class="proof-media"><img src="img/r2/consensus-hk-founders-circle.webp" width="756" height="1100" alt="Sign for Founders Circle, co-hosted by Decubate and Kairon Labs, Hong Kong" loading="lazy"></div>
+          <figcaption><b>Founders Circle <em class="tag host">Hosted by us</em></b><span>Co-hosted by Decubate × Kairon Labs, during Consensus Hong Kong</span></figcaption>
+        </figure>
+      </div>
+      <ol class="ledger" data-sc-in data-sc-stagger="60">
+        <li class="role-row">
+          <div><h3>First Class Citizen</h3><p class="what">Head of Partnerships</p><p class="when">Jul 2026 – Present</p></div>
+          <ul>
+            <li>Runs the partner channel of a second-citizenship, residency and tax-planning advisory for HNW clients.</li>
+            <li>Built a referral network of agencies, advisors and ambassadors.</li>
+          </ul>
+          <div class="fig"></div>
+        </li>
+        <li class="role-row">
+          <div><h3>Modjo</h3><p class="what">Head of Growth</p><p class="when">Jan 2026 – Jul 2026</p></div>
+          <ul>
+            <li>Scaled the network of deal-flow partners.</li>
+            <li>Advised clients in gaming, AI and DeFi on go-to-market in weekly calls.</li>
+            <li>Built the agency's outbound and lead-generation engine.</li>
+          </ul>
+          <div class="fig"></div>
+        </li>
+        <li class="role-row">
+          <div><h3>Decubate</h3><p class="what">Chief Marketing Officer</p><p class="when">Apr 2023 – Jan 2026</p></div>
+          <ul>
+            <li>Led go-to-market across three arms: <b>Ventures</b>, the VC arm, which invested early; <b>Launchpad</b>, which onboarded projects pre-TGE, in the vein of DAO Maker or Seedify; and <b>Technologies</b>, white-label vesting, staking, governance and minting tools, upsold after TGE.</li>
+            <li>Grew the launchpad to 70K+ KYC'd investors.</li>
+            <li>Built full-funnel growth systems, from awareness to retention.</li>
+            <li>Ran global events: side-events at Token2049 Dubai &amp; Singapore and Devcon.</li>
+          </ul>
+          <div class="fig">
+            <p><strong>$100–300K</strong><span>raised per project pre-TGE through the Decubate Launchpad</span></p>
+            <p><strong>25–30x</strong><span>oversubscribed on Luma, Decubate side-events</span></p>
+          </div>
+        </li>
+        <li class="role-row">
+          <div><h3>MidasDAO</h3><p class="what">Growth Lead</p><p class="when">Nov 2021 – Mar 2023</p></div>
+          <ul>
+            <li>Scaled to 150M+ market cap, leading the Avalanche ecosystem for 2+ months.</li>
+            <li>Owned growth and DeFi positioning.</li>
+          </ul>
+          <div class="fig"><p><strong><span data-sc-count="0 150" data-sc-count-at="0.12 0.42" style="display:inline;margin:0;color:inherit;font-size:inherit">150</span>M+</strong><span>market cap; led the Avalanche ecosystem for 2+ months</span></p></div>
+        </li>
+        <li class="role-row">
+          <div><h3>Neways Distributions</h3><p class="what">Founder</p><p class="when">2014 – 2023</p></div>
+          <ul><li>E-commerce venture with an 11-person team and 6-figure+ annual revenue.</li></ul>
+          <div class="fig"><p><strong>11</strong><span>person team, 6-figure+ annual revenue</span></p></div>
+        </li>
+      </ol>
+      <div class="also" data-sc-in data-sc-stagger="60">
+        <div><h3>Speaking</h3><p>Talk on RWA tokenization, Dutch Blockchain Week, Amsterdam. Panel at Consensus Hong Kong. 40+ X/Twitter Spaces, 10+ as host.</p></div>
+        <div><h3>Skills</h3><p>Go-to-Market Strategy, Token Launch Execution, Partnerships &amp; BD, Community Growth, Web3 Events, Outbound Automation, Performance Marketing, SEO &amp; AEO.</p></div>
+        <div><h3>Education</h3><p>Bachelor of Digital Business, Design &amp; Innovation, La Salle BCN, 2019–2022. Master in SEO, 2023.</p></div>
+        <div><h3>Languages</h3><p>Catalan &amp; Spanish (native). English (proficient).</p></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="model">
-  <div class="wrap">
-    <div class="eyebrow" style="color:var(--sky)">How Decubate worked</div>
-    <h2>One project, end to end</h2>
-    <p class="lead">As CMO I worked across all three arms of Decubate, so a project could go from first cheque to live token with us.</p>
-    <div class="flow">
-      <div class="step"><h3>Ventures</h3><p>Our VC arm invested in the project early.</p></div>
-      <div class="step"><h3>Launchpad</h3><p>We onboarded it pre-TGE and raised $100–300K from our community, in the vein of DAO Maker or Seedify.</p></div>
-      <div class="step"><h3>Technologies</h3><p>After TGE, white-label vesting, staking, governance and minting to manage the token.</p></div>
+  <!-- 3 · CIRCUIT. The peak and the signature move. Silence first: a dark map, one line. -->
+  <section id="circuit" class="cx" data-sc-act="pin" data-sc-span="5" data-rm-flow>
+    <div data-sc-stage class="cx-stage">
+      <div class="cx-hush" data-sc-cue="0 0.13 0 0.35">
+        <h2 class="disp">50+ Web3 conferences.</h2>
+        <p>Eleven by name, and 40+ more. From Buenos Aires to Hong Kong, hosting as often as attending.</p>
+      </div>
+      <div class="cx-view" aria-hidden="true">
+        <div class="cx-map">
+          <img src="assets/map-land.svg" alt="" width="1000" height="370">
+          <svg viewBox="0 0 1000 370" preserveAspectRatio="none">
+            <path class="cx-route-ghost" d="M337.8 304.4Q367.9 166.8 489.7 96.1Q497.3 91.2 506 93.4Q503.1 76.5 513.6 62.9Q540.5 47.2 570.2 56.4Q583.7 73.1 580.5 94.4Q696.5 88.5 779.2 170.1Q791.4 185.3 788.4 204.6Q789.9 169.1 817.1 146.3Q737.1 106.3 653.5 138.3"/>
+            <path class="cx-route" d="M337.8 304.4Q367.9 166.8 489.7 96.1"/>
+            <path class="cx-route" d="M489.7 96.1Q497.3 91.2 506 93.4"/>
+            <path class="cx-route" d="M506 93.4Q503.1 76.5 513.6 62.9"/>
+            <path class="cx-route" d="M513.6 62.9Q540.5 47.2 570.2 56.4"/>
+            <path class="cx-route" d="M570.2 56.4Q583.7 73.1 580.5 94.4"/>
+            <path class="cx-route" d="M580.5 94.4Q696.5 88.5 779.2 170.1"/>
+            <path class="cx-route" d="M779.2 170.1Q791.4 185.3 788.4 204.6"/>
+            <path class="cx-route" d="M788.4 204.6Q789.9 169.1 817.1 146.3"/>
+            <path class="cx-route" d="M817.1 146.3Q737.1 106.3 653.5 138.3"/>
+          </svg>
+        </div>
+        <div class="cx-pins">
+          <div class="cx-city" data-x="337.8" data-y="304.4"><b class="lt"></b><b class="dt"></b><span class="nm">Buenos Aires</span></div>
+          <div class="cx-city left" data-x="489.7" data-y="96.1"><b class="lt"></b><b class="dt"></b><span class="nm">Madrid</span></div>
+          <div class="cx-city below" data-x="506" data-y="93.4"><b class="lt"></b><b class="dt"></b><span class="nm">Barcelona</span></div>
+          <div class="cx-city left" data-x="513.6" data-y="62.9"><b class="lt"></b><b class="dt"></b><span class="nm">Amsterdam</span></div>
+          <div class="cx-city" data-x="570.2" data-y="56.4"><b class="lt"></b><b class="dt"></b><span class="nm">Vilnius</span></div>
+          <div class="cx-city below" data-x="580.5" data-y="94.4"><b class="lt"></b><b class="dt"></b><span class="nm">Istanbul</span></div>
+          <div class="cx-city left" data-x="779.2" data-y="170.1"><b class="lt"></b><b class="dt"></b><span class="nm">Bangkok</span></div>
+          <div class="cx-city below" data-x="788.4" data-y="204.6"><b class="lt"></b><b class="dt"></b><span class="nm">Singapore</span></div>
+          <div class="cx-city" data-x="817.1" data-y="146.3"><b class="lt"></b><b class="dt"></b><span class="nm">Hong Kong</span></div>
+          <div class="cx-city below" data-x="653.5" data-y="138.3"><b class="lt"></b><b class="dt"></b><span class="nm">Dubai</span></div>
+        </div>
+      </div>
+      <div class="cx-photos">
+        <figure class="cx-photo" data-stop="0"><video class="cx-loop" src="assets/loop-buenos-aires.mp4" poster="assets/loop-buenos-aires-poster.webp" width="540" height="960" muted loop playsinline preload="none" aria-label="Footage of a BNB Chain event during Devcon Buenos Aires 2025"></video><figcaption><em class="tag">Attended</em>BNB Chain event, Devcon Buenos Aires 2025</figcaption></figure>
+        <figure class="cx-photo" data-stop="0"><img src="img/r2/devcon-buenos-aires-partners.webp" width="825" height="1100" alt="Marti with partners at Devcon Buenos Aires 2025" loading="lazy"><figcaption><em class="tag">Attended</em>With partners, Devcon Buenos Aires 2025</figcaption></figure>
+        <figure class="cx-photo" data-stop="1"><img src="img/r2/madrid-marc-nieto.webp" width="825" height="1100" alt="Instant photo of Marti with creator Marc Nieto at a sponsored event in Madrid" loading="lazy"><figcaption><em class="tag host">Sponsored by us</em>With creator Marc Nieto (600K+ on YouTube), at an event we sponsored in Madrid</figcaption></figure>
+        <figure class="cx-photo" data-stop="2"><img src="img/r2/ebc-barcelona.webp" width="825" height="1100" alt="Group selfie at EBC Barcelona" loading="lazy"><figcaption><em class="tag">Attended</em>EBC Barcelona</figcaption></figure>
+        <figure class="cx-photo" data-stop="3"><img src="img/amsterdam-dbw-rwa-talk.jpg" width="787" height="1400" alt="Marti on stage at Dutch Blockchain Week, his name on the screen behind him" loading="lazy"><figcaption><em class="tag">Speaker</em>Talk on RWA tokenization, Dutch Blockchain Week, Amsterdam</figcaption></figure>
+        <figure class="cx-photo" data-stop="4"><img src="img/vilnius.jpg" width="1050" height="1400" alt="Marti in a suit at a conference in Vilnius" loading="lazy"><figcaption><em class="tag">Attended</em>At a conference in Vilnius</figcaption></figure>
+        <figure class="cx-photo" data-stop="5"><video class="cx-loop" src="assets/loop-istanbul.mp4" poster="assets/loop-istanbul-poster.webp" width="540" height="960" muted loop playsinline preload="none" aria-label="Footage of the rooftop crowd at a Sui event during Istanbul Blockchain Week"></video><figcaption><em class="tag">Attended</em>Sui event, Istanbul Blockchain Week</figcaption></figure>
+        <figure class="cx-photo wide" data-stop="6"><img src="img/r2/devcon-bangkok-builders-night.webp" width="1100" height="619" alt="Marti and a partner in front of the Builders Night backdrop at Devcon Bangkok" loading="lazy"><figcaption><em class="tag">Attended</em>Builders Night, Devcon Bangkok</figcaption></figure>
+        <figure class="cx-photo" data-stop="6"><img src="img/r2/sea-bw-bangkok-dtc.webp" width="825" height="1100" alt="Marti with DTC Group at SEA Blockchain Week, Bangkok" loading="lazy"><figcaption><em class="tag">Attended</em>With DTC Group (partners), SEA Blockchain Week Bangkok</figcaption></figure>
+        <figure class="cx-photo" data-stop="6"><img src="img/r2/sea-bw-bangkok-partners.webp" width="825" height="1100" alt="Marti with partners at SEA Blockchain Week, Bangkok" loading="lazy"><figcaption><em class="tag">Attended</em>With partners, SEA Blockchain Week Bangkok</figcaption></figure>
+        <figure class="cx-photo big" data-stop="7"><img src="img/r2/token2049-singapore-vitalik.webp" width="859" height="1100" alt="Selfie of Marti with Vitalik Buterin behind him at Token2049 Singapore" loading="lazy"><figcaption><em class="tag">Attended</em>With Vitalik Buterin, Token2049 Singapore</figcaption></figure>
+        <figure class="cx-photo wide" data-stop="7"><img src="img/r2/token2049-singapore-our-event.webp" width="1100" height="825" alt="Group photo of guests at the Decubate event during Token2049 Singapore" loading="lazy"><figcaption><em class="tag host">Hosted by us</em>Our event, Token2049 Singapore</figcaption></figure>
+        <figure class="cx-photo" data-stop="7"><img src="img/r2/token2049-singapore-team.webp" width="619" height="1100" alt="The team on a terrace with the Singapore skyline behind them" loading="lazy"><figcaption><em class="tag">Attended</em>The team on the morning of the Token2049 Singapore main conference</figcaption></figure>
+        <figure class="cx-photo" data-stop="8"><img src="img/hong-kong-panel.jpg" width="720" height="1280" alt="Marti seated on a five-person panel in Hong Kong" loading="lazy"><figcaption><em class="tag">Speaker</em>Panelist, Consensus Hong Kong</figcaption></figure>
+        <figure class="cx-photo" data-stop="8"><img src="img/r2/consensus-hk-founders-circle.webp" width="756" height="1100" alt="Sign for Founders Circle, co-hosted by Decubate and Kairon Labs, Hong Kong" loading="lazy"><figcaption><em class="tag host">Hosted by us</em>Founders Circle, co-hosted by Decubate × Kairon Labs, during Consensus Hong Kong</figcaption></figure>
+        <figure class="cx-photo" data-stop="9"><img src="img/da-vinci.jpg" width="720" height="1280" alt="Selfie of Marti with crypto creator Da Vinci" loading="lazy"><figcaption><em class="tag">Attended</em>With Da Vinci (crypto creator), Token2049 Dubai</figcaption></figure>
+        <figure class="cx-photo wide" data-stop="9"><img src="img/r2/token2049-dubai-our-event.webp" width="1100" height="619" alt="Marti with his team and partners at their own event during Token2049 Dubai" loading="lazy"><figcaption><em class="tag host">Hosted by us</em>Team and partners at our own event, Token2049 Dubai</figcaption></figure>
+        <figure class="cx-photo wide" data-stop="9"><img src="img/r2/token2049-dubai-kucoin.webp" width="1100" height="619" alt="Marti with partners holding KuCoin signs at Token2049 Dubai" loading="lazy"><figcaption><em class="tag">Attended</em>KuCoin event, Token2049 Dubai</figcaption></figure>
+        <figure class="cx-photo" data-stop="9"><img src="img/r2/token2049-dubai-gateio.webp" width="930" height="1100" alt="Group photo under the Gate.io sign at Token2049 Dubai" loading="lazy"><figcaption><em class="tag">Attended</em>Gate.io event, Token2049 Dubai</figcaption></figure>
+      </div>
+      <div class="cx-panel" data-sc-cue="0.06 1 0.08 0">
+        <p class="cx-tally" aria-hidden="true"><span>Cities<b data-tally="cities">0/10</b></span><span>Conferences<b data-tally="named">0/11</b></span><span>Hosted in<b data-tally="hosted">0</b></span></p>
+        <ol class="cx-stops">
+          <li><h3>Buenos Aires</h3><ul class="ev"><li>Devcon<em class="tag">Attended</em></li><li>BNB Chain event<em class="tag">Attended</em></li></ul></li>
+          <li><h3>Madrid</h3><ul class="ev"><li>An event we sponsored<em class="tag host">Sponsored by us</em></li></ul></li>
+          <li><h3>Barcelona</h3><ul class="ev"><li>EBC Barcelona<em class="tag">Attended</em></li><li>Home base</li></ul></li>
+          <li><h3>Amsterdam</h3><ul class="ev"><li>Dutch Blockchain Week: talk on RWA tokenization<em class="tag">Speaker</em></li></ul></li>
+          <li><h3>Vilnius</h3><ul class="ev"><li>A conference in Vilnius<em class="tag">Attended</em></li></ul></li>
+          <li><h3>Istanbul</h3><ul class="ev"><li>Istanbul Blockchain Week, Sui event<em class="tag">Attended</em></li></ul></li>
+          <li><h3>Bangkok</h3><ul class="ev"><li>SEA Blockchain Week, with DTC Group<em class="tag">Attended</em></li><li>Devcon, Builders Night<em class="tag">Attended</em></li></ul></li>
+          <li><h3>Singapore</h3><ul class="ev"><li>Token2049 Singapore<em class="tag">Attended</em></li><li>Our event<em class="tag host">Hosted by us</em></li></ul></li>
+          <li><h3>Hong Kong</h3><ul class="ev"><li>Consensus Hong Kong, panelist<em class="tag">Speaker</em></li><li>Founders Circle with Kairon Labs<em class="tag host">Hosted by us</em></li><li>Bitcoin Asia, Hong Kong Web3 Festival<em class="tag">Attended</em></li></ul></li>
+          <li><h3>Dubai</h3><ul class="ev"><li>Token2049 Dubai, three times<em class="tag">Attended</em></li><li>Decubate side-events, including the yacht night<em class="tag host">Hosted by us</em></li><li>KuCoin and Gate.io events<em class="tag">Attended</em></li></ul></li>
+        </ol>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Experience</div>
-    <h2>Where I've worked</h2>
-    <div class="timeline">
-      <div class="job">
-        <div class="job-head"><h3>First Class Citizen</h3><span class="when">Jul 2026 – Present</span></div>
-        <div class="title">Head of Partnerships</div>
+  <!-- 4 · YACHT. The only scrub. Real footage, framed like a work on a wall, with its label. -->
+  <section id="yacht" class="yx" data-sc-act="scrub" data-sc-span="2.4" data-sc-dwell="0.28" data-rm-flow>
+    <div data-sc-stage class="yx-stage">
+      <div class="yx-frame">
+        <picture>
+          <source media="(max-width: 860px)" srcset="assets/yacht-poster-m.webp">
+          <img class="sc-stage__poster" src="assets/yacht-poster.webp" alt="" width="1600" height="900">
+        </picture>
+        <video data-sc-scrub data-sc-src="assets/yacht.mp4" data-sc-src-mobile="assets/yacht-m.mp4" muted playsinline aria-label="Footage of the Decubate yacht side-event at night in Dubai Marina"></video>
+      </div>
+      <div class="yx-label" data-sc-cue="0 1 0 0">
+        <p class="kick">Decubate side-event · Token2049 Dubai</p>
+        <h2 class="disp">The yacht night</h2>
         <ul>
-          <li>Run the partner channel of a second-citizenship, residency and tax-planning advisory for HNW clients.</li>
-          <li>Built a referral network of agencies, advisors and ambassadors.</li>
+          <li>He found the yacht and branded the boat.</li>
+          <li>He handled catering, the photographer, the videographer and the final edit.</li>
+          <li>Close to 50x oversubscribed on Luma.</li>
         </ul>
-      </div>
-      <div class="job">
-        <div class="job-head"><h3>Modjo</h3><span class="when">Jan 2026 – Jul 2026</span></div>
-        <div class="title">Head of Growth</div>
-        <ul>
-          <li>Scaled our network of deal-flow partners to grow the business.</li>
-          <li>Advised clients in gaming, AI and DeFi on go-to-market strategy through weekly calls.</li>
-          <li>Built the agency's outbound and lead-generation engine.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <div class="job-head"><h3>Decubate</h3><span class="when">Apr 2023 – Jan 2026</span></div>
-        <div class="title">Chief Marketing Officer</div>
-        <ul>
-          <li>Led GTM across the Ventures, Launchpad and Technologies arms.</li>
-          <li>Built full-funnel growth systems, from awareness to retention.</li>
-          <li>Ran global events end to end: side-events at Token2049 Dubai &amp; Singapore and Devcon, 25–30x oversubscribed on Luma.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <div class="job-head"><h3>MidasDAO</h3><span class="when">Nov 2021 – Mar 2023</span></div>
-        <div class="title">Growth Lead</div>
-        <ul><li>Scaled to 150M+ market cap, leading the Avalanche ecosystem for 2+ months; owned growth and DeFi positioning.</li></ul>
-      </div>
-      <div class="job">
-        <div class="job-head"><h3>Neways Distributions</h3><span class="when">2014 – 2023</span></div>
-        <div class="title">Founder</div>
-        <ul><li>E-commerce venture: 11-person team, 6-figure+ annual revenue.</li></ul>
+        <a class="film" href="https://youtu.be/qviyCVqitYo" target="_blank" rel="noopener">Watch the full film <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="eyebrow">On stage &amp; in the room</div>
-    <h2>Conferences &amp; speaking</h2>
-    <div class="gallery">
-      <figure><img src="img/amsterdam-dbw-rwa-talk.jpg" alt="Marti on stage at Dutch Blockchain Week" loading="lazy" style="object-position:50% 100%"><figcaption><b>Talk on RWA tokenization</b>Dutch Blockchain Week, Amsterdam</figcaption></figure>
-      <figure><img src="img/hong-kong-panel.jpg" alt="Marti on a panel in Hong Kong" loading="lazy"><figcaption><b>Panelist</b>Consensus Hong Kong</figcaption></figure>
-            <figure><img src="img/da-vinci.jpg" alt="Marti with crypto creator Da Vinci" loading="lazy"><figcaption><b>With Da Vinci (crypto creator)</b>Token2049 Dubai</figcaption></figure>
+  <!-- 5 · CONTACT. The inquiry plate, typeset as a label, pinned to Barcelona on the lit map. -->
+  <section id="contact" class="kx" data-sc-act="flow">
+    <div class="kx-map" aria-hidden="true">
+      <img src="assets/map-land.svg" alt="" width="1000" height="370" loading="lazy">
+      <svg viewBox="0 0 1000 370" preserveAspectRatio="none"><path d="M337.8 304.4Q367.9 166.8 489.7 96.1Q497.3 91.2 506 93.4Q503.1 76.5 513.6 62.9Q540.5 47.2 570.2 56.4Q583.7 73.1 580.5 94.4Q696.5 88.5 779.2 170.1Q791.4 185.3 788.4 204.6Q789.9 169.1 817.1 146.3Q737.1 106.3 653.5 138.3"/></svg>
+      <i style="left:33.78%;top:82.27%"></i><i style="left:48.97%;top:25.97%"></i><i class="home" style="left:50.6%;top:25.24%"></i><i style="left:51.36%;top:17%"></i><i style="left:57.02%;top:15.24%"></i><i style="left:58.05%;top:25.51%"></i><i style="left:77.92%;top:45.97%"></i><i style="left:78.84%;top:55.3%"></i><i style="left:81.71%;top:39.54%"></i><i style="left:65.35%;top:37.38%"></i>
     </div>
-    <div class="chips">
-      <span class="chip">Token2049 Dubai ×3</span>
-      <span class="chip">Token2049 Singapore</span>
-      <span class="chip">Consensus Hong Kong</span>
-      <span class="chip">Bitcoin Asia</span>
-      <span class="chip">Hong Kong Web3 Festival</span>
-      <span class="chip">EBC Barcelona</span>
-      <span class="chip">Dutch Blockchain Week</span>
-      <span class="chip">Istanbul Blockchain Week</span>
-      <span class="chip">SEA Blockchain Week Bangkok</span>
-      <span class="chip">Devcon Bangkok</span>
-      <span class="chip">Devcon Buenos Aires</span>
-      <span class="chip more">+40 more</span>
+    <span class="kx-lead" aria-hidden="true"></span>
+    <div class="kx-plate" data-sc-in data-sc-stagger="60">
+      <p class="kick">Contact</p>
+      <h2 class="disp">Marti Pla Rabell</h2>
+      <p class="meta">Web3 Growth &amp; Partnerships · Barcelona</p>
+      <p class="fast">Telegram is the fastest way to reach him: @iHnzZ.</p>
+      <a class="tg" href="https://t.me/iHnzZ" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.1 1.4 11.6c-1-.3-1.1-1 .2-1.5L20.5 2.9c.9-.3 1.7.2 1.4 1.4z"/></svg>
+        Message on Telegram</a>
+      <div class="links"><a href="https://www.linkedin.com/in/martiplarabell" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:martiplarabell@gmail.com">martiplarabell@gmail.com</a></div>
+      <small>© 2026 Marti Pla Rabell</small>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact">
-  <div class="wrap">
-    <h2>Let's talk</h2>
-    <p>Telegram is the fastest way to reach me.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://t.me/iHnzZ" target="_blank" rel="noopener">Telegram · @iHnzZ</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/martiplarabell" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn ghost" href="mailto:martiplarabell@gmail.com">martiplarabell@gmail.com</a>
-    </div>
-  </div>
-</section>
+</main>
 
-<footer>© Marti Pla Rabell · Bachelor in Digital Business, Design &amp; Innovation (La Salle BCN) · Master in SEO (2023) · Catalan &amp; Spanish (native), English (proficient)</footer>
-
+<script src="scrollcraft.js"></script>
+<script src="page.js"></script>
 </body>
 </html>
