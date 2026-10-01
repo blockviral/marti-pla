@@ -80,7 +80,6 @@
   var stageEl = cxEl.querySelector('.cx-stage');
   var stopsLi = Array.prototype.slice.call(cxEl.querySelectorAll('.cx-stops > li'));
   var EUROPE = [false, true, true, true, true, true, false, false, false, false];
-  var HOME = 2;                                      // Barcelona
 
   legs.forEach(function (p) {
     p.__len = p.getTotalLength();
@@ -168,7 +167,6 @@
     for (var c = 0; c < cities.length; c++) {
       var C = cities[c];
       var ig = reduce ? 1 : smooth((p - arrive[c]) / 0.025);
-      if (c === HOME && !reduce) ig = Math.max(ig, 0.35);      // home base glows faintly from the start
       var swell = (!reduce && c === N) ? smooth((p - R1 - 0.02) / 0.14) : 0;
       C.el.style.setProperty('--ig', ig.toFixed(3));
       C.el.style.setProperty('--swell', swell.toFixed(3));
@@ -306,19 +304,6 @@
       lit + '|' + Math.round(cam.x) + ',' + Math.round(cam.y) + ',' + Math.round(cam.vis));
   }
 
-  /* ------------------------------------------- contact: plate pinned to home */
-  var kx = document.getElementById('contact');
-  var lead = kx.querySelector('.kx-lead'), plate = kx.querySelector('.kx-plate'), home = kx.querySelector('.kx-map i.home');
-  function placeLead() {
-    if (!lead || getComputedStyle(lead).display === 'none') return;
-    var k = kx.getBoundingClientRect(), pr = plate.getBoundingClientRect(), h = home.getBoundingClientRect();
-    var x0 = pr.right - k.left, y0 = pr.top - k.top + 28;
-    var x1 = h.left + h.width / 2 - k.left, y1 = h.top + h.height / 2 - k.top;
-    var len = Math.hypot(x1 - x0, y1 - y0), ang = Math.atan2(y1 - y0, x1 - x0);
-    lead.style.left = x0 + 'px'; lead.style.top = y0 + 'px'; lead.style.width = len + 'px';
-    lead.style.transform = 'rotate(' + ang + 'rad)';
-  }
-
   // Keyboard: a control inside a not-yet-revealed flow block must never take focus at opacity 0.
   document.addEventListener('focusin', function (e) {
     var blk = e.target.closest && e.target.closest('[data-sc-in]');
@@ -331,9 +316,7 @@
 
   var cxAct = actOf('circuit');
   layoutMap();
-  placeLead();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeLead);
-  addEventListener('resize', function () { layoutMap(); drawCircuit(cxAct, true); placeLead(); }, { passive: true });
+  addEventListener('resize', function () { layoutMap(); drawCircuit(cxAct, true); }, { passive: true });
   Array.prototype.forEach.call(cxEl.querySelectorAll('.cx-photo img'), function (im) {
     if (!im.complete) im.addEventListener('load', function () { layoutMap(); }, { once: true });
   });
@@ -345,7 +328,6 @@
     if (near) drawCircuit(cxAct, Math.abs(scrollY - lastY) > innerHeight * 1.5);
     if (near) verifyState(cxAct);
     drawIndex();
-    if (kx.getBoundingClientRect().top < innerHeight) placeLead();
     lastY = scrollY;
     requestAnimationFrame(frameTick);
   }
